@@ -1,0 +1,98 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #710c19;
+}
+
+//*------底板字+色塊------
+section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  transform-style: preserve-3d; //!
+  perspective: 500px; //!
+  h2 {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    line-height: 100vh;
+    font-size: 10vw;
+    color: #fff;
+    font-weight: 700;
+  }
+  &.active .banner .blocks {
+    animation: animateTwo 2s ease-in-out forwards;
+    background: url(../pic/bk.jpg);
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    //box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  }
+}
+//*------3d立體式[ 飛出 ]效果
+@keyframes animateTwo {
+  0% {
+    transform: translateZ(0px);
+    background: url(../pic/bk.jpg);
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  }
+  100% {
+    transform: translateZ(2000px);
+    background: url(../pic/bk.jpg);
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    border: 1px solid rgba(0, 0, 0, 0.1); //*拼圖邊框
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0);
+  }
+}
+
+//*------爆炸拼圖尺寸------
+.banner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  .blocks {
+    position: relative;
+    display: block;
+    width: 5vw;
+    height: 5vh;
+    //background: #fff;
+    animation: animate 2s ease-in-out forwards;
+    animation-delay: 1s;
+  }
+}
+//*------3d立體式[ 飛入 ]效果
+@keyframes animate {
+  0% {
+    transform: translateZ(2000px);
+    background: url(../pic/bk.jpg);
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  }
+  100% {
+    transform: translateZ(0px);
+    background: url(../pic/bk.jpg);
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    border: 1px solid rgba(0, 0, 0, 0.1); //*拼圖邊框
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0);
+  }
+}
